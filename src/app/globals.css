@@ -2,20 +2,278 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .message-enter-fast {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: messageSlideInFast 0.2s ease-out forwards;
+  }
+
+  .typing-enter {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.95);
+    animation: typingSlideIn 0.15s ease-out forwards;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #464646;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageSlideInFast {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes typingSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-30px) translateX(20px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-40px) translateX(-15px);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(25px) translateX(-15px);
+  }
+  50% {
+    transform: translateY(35px) translateX(20px);
+  }
+  75% {
+    transform: translateY(10px) translateX(10px);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  33% {
+    transform: translateX(50px) translateY(-25px);
+  }
+  66% {
+    transform: translateX(-30px) translateY(20px);
+  }
+}
+
+@keyframes floatComplex {
+  0%,
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(40px) translateY(-20px) rotate(2deg);
+  }
+  50% {
+    transform: translateX(-20px) translateY(-35px) rotate(-1deg);
+  }
+  75% {
+    transform: translateX(-35px) translateY(15px) rotate(1deg);
+  }
+}
+
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.2), rgba(4, 120, 87, 0.1));
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.sphere-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 15%;
+  animation: float 15s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.sphere-2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: 20%;
+  animation: floatReverse 18s ease-in-out infinite;
+  animation-delay: -5s;
+  opacity: 0.4;
+}
+
+.sphere-3 {
+  width: 120px;
+  height: 120px;
+  top: 30%;
+  right: 10%;
+  animation: drift 14s ease-in-out infinite;
+  animation-delay: -8s;
+  opacity: 0.3;
+}
+
+.sphere-4 {
+  width: 180px;
+  height: 180px;
+  bottom: 20%;
+  left: 10%;
+  animation: floatComplex 16s ease-in-out infinite;
+  animation-delay: -12s;
+  opacity: 0.5;
+}
+
+.sphere-5 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: 60%;
+  animation: floatReverse 12s ease-in-out infinite;
+  animation-delay: -3s;
+  opacity: 0.35;
+}
+
+.sphere-6 {
+  width: 160px;
+  height: 160px;
+  top: 5%;
+  right: 40%;
+  animation: drift 17s ease-in-out infinite;
+  animation-delay: -15s;
+  opacity: 0.45;
+}
+
+.sphere-7 {
+  width: 90px;
+  height: 90px;
+  bottom: 40%;
+  right: 5%;
+  animation: floatComplex 13s ease-in-out infinite;
+  animation-delay: -7s;
+  opacity: 0.25;
+}
+
+.sphere-8 {
+  width: 140px;
+  height: 140px;
+  bottom: 10%;
+  left: 40%;
+  animation: float 19s ease-in-out infinite;
+  animation-delay: -10s;
+  opacity: 0.4;
 }
