@@ -10,17 +10,18 @@
     "ingest": "node ./src/scripts/ingest-data.mjs"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.9",
+    "@radix-ui/react-slot": "^1.2.3",
     "ai": "^2.2.30",
-    "dotenv": "^16.3.1",
-    "framer-motion": "^10.16.16",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "langchain": "^0.0.212",
+    "lucide-react": "^0.513.0",
     "mongodb": "^5.9.2",
     "next": "15.3.3",
     "pdf-parse": "^1.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-icons": "^4.12.0"
+    "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",
