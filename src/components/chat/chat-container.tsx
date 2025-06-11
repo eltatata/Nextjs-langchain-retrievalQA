@@ -31,7 +31,7 @@ export default function ChatContainer({
     "What is a binary search tree?",
     "Explain hash table collisions",
     "What is the Big O?",
-    "How a stack works?",
+    "How a stack works? show it to me in code",
   ];
 
   return (
