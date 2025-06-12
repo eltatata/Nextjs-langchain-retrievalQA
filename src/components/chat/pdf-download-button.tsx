@@ -1,12 +1,16 @@
-import Link from "next/link";
-import { Download } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import { Download } from 'lucide-react';
 
 interface PdfDownloadButtonProps {
   href: string;
   text: string;
 }
 
-export default function PdfDownloadButton({ href, text }: PdfDownloadButtonProps) {
+export default function PdfDownloadButton({
+  href,
+  text,
+}: PdfDownloadButtonProps) {
   return (
     <div className="flex justify-center mb-6">
       <Link
