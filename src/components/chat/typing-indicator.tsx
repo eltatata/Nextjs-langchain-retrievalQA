@@ -1,4 +1,5 @@
-import { Bot } from "lucide-react";
+import React from 'react';
+import { Bot } from 'lucide-react';
 
 interface TypingIndicatorProps {
   isVisible: boolean;
@@ -17,11 +18,11 @@ export default function TypingIndicator({ isVisible }: TypingIndicatorProps) {
           <div className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"></div>
           <div
             className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"
-            style={{ animationDelay: "0.1s" }}
+            style={{ animationDelay: '0.1s' }}
           ></div>
           <div
             className="w-2 h-2 bg-emerald-500 rounded-full animate-bounce"
-            style={{ animationDelay: "0.2s" }}
+            style={{ animationDelay: '0.2s' }}
           ></div>
         </div>
       </div>

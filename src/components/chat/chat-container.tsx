@@ -1,17 +1,21 @@
-import React from "react";
-import { Card } from "@/components/ui/card";
-import { Message } from "ai";
-import WelcomeMessage from "./welcome-message";
-import ChatMessages from "./chat-messages";
-import TypingIndicator from "./typing-indicator";
-import ChatInputForm from "./chat-input-form";
+import React from 'react';
+import { Card } from '@/components/ui/card';
+import { Message } from 'ai';
+import WelcomeMessage from './welcome-message';
+import ChatMessages from './chat-messages';
+import TypingIndicator from './typing-indicator';
+import ChatInputForm from './chat-input-form';
 
 interface ChatContainerProps {
   messages: Message[];
   input: string;
   isLoading: boolean;
   isTyping: boolean;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onInputChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   onQuestionClick: (question: string) => void;
   messagesEndRef: React.RefObject<HTMLDivElement | null>;
@@ -25,13 +29,13 @@ export default function ChatContainer({
   onInputChange,
   onSubmit,
   onQuestionClick,
-  messagesEndRef
+  messagesEndRef,
 }: ChatContainerProps) {
   const welcomeQuestions = [
-    "What is a binary search tree?",
-    "Explain hash table collisions",
-    "What is the Big O?",
-    "How a stack works? show it to me in code",
+    'What is a binary search tree?',
+    'Explain hash table collisions',
+    'What is the Big O?',
+    'How a stack works? show it to me in code',
   ];
 
   return (

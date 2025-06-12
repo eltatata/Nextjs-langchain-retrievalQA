@@ -1,18 +1,18 @@
-import vectorStore from "@/database/vectore.store";
+import vectorStore from '@/database/vectore.store';
 import { NextRequest } from 'next/server';
 import { StreamingTextResponse } from 'ai';
 import {
-    RunnablePassthrough,
-    RunnableSequence,
-} from "langchain/schema/runnable";
-import { BytesOutputParser } from "langchain/schema/output_parser";
+  RunnablePassthrough,
+  RunnableSequence,
+} from 'langchain/schema/runnable';
+import { BytesOutputParser } from 'langchain/schema/output_parser';
 import {
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    SystemMessagePromptTemplate,
-} from "langchain/prompts";
-import { ChatOpenAI } from "langchain/chat_models/openai";
-import { formatDocumentsAsString } from "langchain/util/document";
+  ChatPromptTemplate,
+  HumanMessagePromptTemplate,
+  SystemMessagePromptTemplate,
+} from 'langchain/prompts';
+import { ChatOpenAI } from 'langchain/chat_models/openai';
+import { formatDocumentsAsString } from 'langchain/util/document';
 
 // export const runtime = 'edge';
 
@@ -26,41 +26,41 @@ Si la pregunta no está relacionada con estructuras de datos, responde amablemen
 {context}`;
 
 const messages = [
-    SystemMessagePromptTemplate.fromTemplate(SYSTEM_TEMPLATE),
-    HumanMessagePromptTemplate.fromTemplate("{question}"),
+  SystemMessagePromptTemplate.fromTemplate(SYSTEM_TEMPLATE),
+  HumanMessagePromptTemplate.fromTemplate('{question}'),
 ];
 
 const prompt = ChatPromptTemplate.fromMessages(messages);
 
 export async function POST(req: NextRequest) {
-    const body = await req.json();
+  const body = await req.json();
 
-    const messages = body.messages ?? [];
-    const question = messages[messages.length - 1].content;
+  const messages = body.messages ?? [];
+  const question = messages[messages.length - 1].content;
 
-    console.log(question);
+  console.log(question);
 
-    const model = new ChatOpenAI({
-        modelName: "gpt-3.5-turbo",
-        temperature: 0.8,
-    });
-    const outputParser = new BytesOutputParser();
+  const model = new ChatOpenAI({
+    modelName: 'gpt-3.5-turbo',
+    temperature: 0.8,
+  });
+  const outputParser = new BytesOutputParser();
 
-    const chain = RunnableSequence.from([
-        {
-            context: vectorStoreRetriever.pipe(formatDocumentsAsString),
-            question: new RunnablePassthrough(),
-        },
-        prompt,
-        model,
-        outputParser
-    ]);
+  const chain = RunnableSequence.from([
+    {
+      context: vectorStoreRetriever.pipe(formatDocumentsAsString),
+      question: new RunnablePassthrough(),
+    },
+    prompt,
+    model,
+    outputParser,
+  ]);
 
-    console.log("Generando respuesta...");
+  console.log('Generando respuesta...');
 
-    const stream = await chain.stream(question);
+  const stream = await chain.stream(question);
 
-    console.log("Respuesta generada");
+  console.log('Respuesta generada');
 
-    return new StreamingTextResponse(stream);
+  return new StreamingTextResponse(stream);
 }

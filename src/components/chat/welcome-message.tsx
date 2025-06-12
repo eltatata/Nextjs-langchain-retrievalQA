@@ -1,4 +1,5 @@
-import { BrainCircuit } from "lucide-react";
+import React from 'react';
+import { BrainCircuit } from 'lucide-react';
 
 interface WelcomeMessageProps {
   title: string;
@@ -7,11 +8,11 @@ interface WelcomeMessageProps {
   onQuestionClick: (question: string) => void;
 }
 
-export default function WelcomeMessage({ 
-  title, 
-  description, 
-  questions, 
-  onQuestionClick 
+export default function WelcomeMessage({
+  title,
+  description,
+  questions,
+  onQuestionClick,
 }: WelcomeMessageProps) {
   return (
     <div className="text-center py-12 animate-fade-in">
@@ -19,9 +20,7 @@ export default function WelcomeMessage({
         <BrainCircuit className="w-8 h-8 text-emerald-600" />
       </div>
       <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-neutral-300 max-w-md mx-auto">
-        {description}
-      </p>
+      <p className="text-neutral-300 max-w-md mx-auto">{description}</p>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
         {questions.map((question, index) => (
           <button

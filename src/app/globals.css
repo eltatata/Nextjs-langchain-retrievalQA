@@ -194,7 +194,12 @@
 .sphere {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.2), rgba(4, 120, 87, 0.1));
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(16, 185, 129, 0.4),
+    rgba(5, 150, 105, 0.2),
+    rgba(4, 120, 87, 0.1)
+  );
   filter: blur(1px);
   pointer-events: none;
 }

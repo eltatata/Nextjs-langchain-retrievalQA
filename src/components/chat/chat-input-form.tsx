@@ -1,12 +1,16 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Send, FileText } from "lucide-react";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Send, FileText } from 'lucide-react';
 
 interface ChatInputFormProps {
   input: string;
   isLoading: boolean;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onInputChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   placeholder?: string;
 }
@@ -16,7 +20,7 @@ export default function ChatInputForm({
   isLoading,
   onInputChange,
   onSubmit,
-  placeholder = "Ask about data structures..."
+  placeholder = 'Ask about data structures...',
 }: ChatInputFormProps) {
   return (
     <div className="p-6 border-t border-neutral-700/20 bg-neutral-800/10 backdrop-blur-sm">
