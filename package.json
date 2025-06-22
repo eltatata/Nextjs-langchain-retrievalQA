@@ -21,7 +21,7 @@
     "dotenv": "^16.5.0",
     "langchain": "^0.3.29",
     "lucide-react": "^0.513.0",
-    "mongodb": "^5.9.2",
+    "mongodb": "^6.17.0",
     "next": "15.3.3",
     "pdf-parse": "^1.1.1",
     "react": "19.1.0",
