@@ -1,9 +1,9 @@
 import 'dotenv/config';
-import { MongoDBAtlasVectorSearch } from 'langchain/vectorstores/mongodb_atlas';
-import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
+import { MongoDBAtlasVectorSearch } from '@langchain/mongodb';
+import { OpenAIEmbeddings } from '@langchain/openai';
 import { MongoClient } from 'mongodb';
-import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
-import { CharacterTextSplitter } from 'langchain/text_splitter';
+import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
+import { CharacterTextSplitter } from '@langchain/textsplitters';
 
 const embeddings = new OpenAIEmbeddings();
 

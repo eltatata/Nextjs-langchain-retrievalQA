@@ -1,17 +1,18 @@
 import vectorStore from '@/database/vectore.store';
 import { NextRequest } from 'next/server';
-import { StreamingTextResponse } from 'ai';
+import { LangChainAdapter } from 'ai';
 import {
-  RunnablePassthrough,
   RunnableSequence,
-} from 'langchain/schema/runnable';
-import { BytesOutputParser } from 'langchain/schema/output_parser';
+  RunnablePassthrough,
+} from '@langchain/core/runnables';
+
+import { StringOutputParser } from '@langchain/core/output_parsers';
 import {
   ChatPromptTemplate,
   HumanMessagePromptTemplate,
   SystemMessagePromptTemplate,
-} from 'langchain/prompts';
-import { ChatOpenAI } from 'langchain/chat_models/openai';
+} from '@langchain/core/prompts';
+import { ChatOpenAI } from '@langchain/openai';
 import { formatDocumentsAsString } from 'langchain/util/document';
 
 // export const runtime = 'edge';
@@ -44,7 +45,7 @@ export async function POST(req: NextRequest) {
     modelName: 'gpt-3.5-turbo',
     temperature: 0.8,
   });
-  const outputParser = new BytesOutputParser();
+  const outputParser = new StringOutputParser();
 
   const chain = RunnableSequence.from([
     {
@@ -62,5 +63,5 @@ export async function POST(req: NextRequest) {
 
   console.log('Respuesta generada');
 
-  return new StreamingTextResponse(stream);
+  return LangChainAdapter.toDataStreamResponse(stream);
 }
