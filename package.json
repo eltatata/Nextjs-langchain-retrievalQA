@@ -12,7 +12,6 @@
   "dependencies": {
     "@langchain/community": "^0.3.47",
     "@langchain/core": "^0.3.61",
-    "@langchain/langgraph": "^0.3.4",
     "@langchain/mongodb": "^0.1.0",
     "@langchain/openai": "^0.5.15",
     "@radix-ui/react-slot": "^1.2.3",
