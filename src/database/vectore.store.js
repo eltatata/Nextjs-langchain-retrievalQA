@@ -1,5 +1,5 @@
-import { MongoDBAtlasVectorSearch } from 'langchain/vectorstores/mongodb_atlas';
-import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
+import { MongoDBAtlasVectorSearch } from '@langchain/mongodb';
+import { OpenAIEmbeddings } from '@langchain/openai';
 import { MongoClient } from 'mongodb';
 
 const client = new MongoClient(process.env.MONGODB_ATLAS_URI || '');
