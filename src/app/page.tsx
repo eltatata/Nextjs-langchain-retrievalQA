@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useChat } from 'ai/react';
+import { useChat } from '@ai-sdk/react';
 import ChatHeader from '@/components/chat/chat-header';
 import PdfDownloadButton from '@/components/chat/pdf-download-button';
 import ChatContainer from '@/components/chat/chat-container';
