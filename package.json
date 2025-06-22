@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ingest": "node ./src/scripts/ingest-data.mjs"
+    "ingest": "tsx ./src/scripts/ingest-data.ts"
   },
   "dependencies": {
     "@langchain/community": "^0.3.47",
@@ -29,6 +29,7 @@
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.3.0",
+    "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.4"
   },
   "devDependencies": {
