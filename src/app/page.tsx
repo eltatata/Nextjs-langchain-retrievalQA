@@ -78,7 +78,10 @@ export default function Home() {
           onQuestionClick={handleQuestionClick}
           messagesEndRef={messagesEndRef}
         />
-        <ChatFooter text="Powered by AI • Focused on Data Structures & Algorithms" />
+        <ChatFooter
+          text="Powered by AI • Focused on Data Structures & Algorithms"
+          repoUrl="https://github.com/eltatata/Nextjs-langchain-retrievalQA"
+        />
       </div>
     </div>
   );
