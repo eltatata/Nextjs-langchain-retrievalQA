@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Felipe — AI-Powered Assistant for Data Structures
 
-## Getting Started
+![alt text](./assets/image.png)
 
-First, run the development server:
+**Felipe** is a lightweight AI assistant built with RAG (Retrieval-Augmented Generation) to help users ask questions and retrieve relevant information specifically about **data structures**.
+
+---
+
+## 🚀 Features
+
+- 💬 Ask natural language questions about data structures.
+- 📄 Information is retrieved from a structured **PDF source**.
+- ⚙️ Built using **LangChain**, **Next.js**, and **Vercel AI SDK**.
+- 🧠 **MongoDB** is used as the vector store for efficient semantic search.
+
+---
+
+## 📸 Demo
+
+<p align="center">
+  <img src="assets/demo.gif" alt="Demo de Felipe" width="1000" />
+</p>
+
+---
+
+## 📘 Source Material
+
+All responses are based on a curated PDF about data structures.
+
+👉 [Download the PDF](./src/docs/estruc-datos.pdf)
+
+---
+
+## 🛠️ Tech Stack
+
+- [LangChain](https://www.langchain.com/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vercel AI SDK](https://sdk.vercel.ai/)
+- [MongoDB Vector Store](https://www.mongodb.com/)
+- [Vercel](https://vercel.com/)
+
+
+---
+
+## 📦 Installation
 
 ```bash
+# Clone the repo
+git clone https://github.com/eltatata/Nextjs-langchain-retrievalQA
+cd Nextjs-langchain-retrievalQA
+
+# Install dependencies
+npm install
+
+# Create your .env file based on .env.example and configure your keys
+cp .env.example .env
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
